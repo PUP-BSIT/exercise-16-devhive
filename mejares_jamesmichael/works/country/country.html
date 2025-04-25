@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries of the World</title>
+    <link rel="stylesheet" href="country.css">
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <div class="content">
+        <h1 class="blink">㊬ Countries of the World</h1>
+
+        <div class="search-container">
+            <h2>Search for a Country</h2>
+            <input type="text" id="countrySearch" 
+                placeholder="Enter country name">
+            <button id="searchBtn">$ grep country</button>
+        </div>
+
+        <div class="loading">
+            <h3>Fetching data...</h3>
+            <pre>     
+             ▒██▒ ██▒█ ░██             
+             ███ █  █    █ ███           
+            █████░    ░░ ░███ ██         
+          ░████     ░░░░ █     █░        
+             █  ░░░░░░░░ ████████        
+         █ █  ░ ░░░░░░░░ █░▓▓▓▒▒█        
+         █  ███    ░░░░░ ███▒██▒█░       
+          ▒  ████    ░░░      ███        
+          ▒░ ██▓████ ░░░░░░░  ██         
+           ▒ ░▓█▒▓██ ░░░░░░░ ░█          
+             ░ ███░      ░░░▒░           
+                █  █▓▒▓█▒▒▒▓             
+            </pre>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+
+        <div class="country-details" id="countryDetails">
+            <img class="country-flag" id="countryFlag" alt="Country Flag">
+            <h2 id="countryName"></h2>
+            <div class="country-info">
+                <div class="info-label">Capital:</div>
+                <div id="capital"></div>
+                
+                <div class="info-label">Region:</div>
+                <div id="region"></div>
+                
+                <div class="info-label">Population:</div>
+                <div id="population"></div>
+                
+                <div class="info-label">Area:</div>
+                <div id="area"></div>
+                
+                <div class="info-label">Languages:</div>
+                <div id="languages"></div>
+                
+                <div class="info-label">Currencies:</div>
+                <div id="currencies"></div>
+                
+                <div class="info-label">Timezones:</div>
+                <div id="timezones"></div>
+            </div>
+        </div>
+
+        <div class="region-countries" id="regionCountries">
+            <h2 class="region-title">Countries in the same region: 
+                <span id="regionName"></span></h2>
+            <div class="countries-grid" id="countriesGrid"></div>
+        </div>
+    </div>
+
+    <script src="country.js"></script>
+</body>
+</html>

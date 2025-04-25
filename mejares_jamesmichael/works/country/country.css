@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+* {
+    color: #0f0;
+    font-family: "VT323", monospace;
+}
+
+body {
+    background-color: #000;
+    color: #0f0;
+    margin: 0;
+    padding: 0;
+    background-image: url('../../assets/map.gif');
+    background-size: auto 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+h1, h2, h3 {
+    color: #0f0;
+    text-shadow: 0 0 5px #0f0;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+.search-container {
+    text-align: center;
+    margin-bottom: 40px;
+    background-color: rgba(0, 20, 0, 0.7);
+    padding: 20px;
+    border: 1px solid #0f0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 60%;
+    background-color: #000;
+    border: 1px solid #0f0;
+    color: #0f0;
+    font-family: monospace;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #003300;
+    color: #0f0;
+    border: 1px solid #0f0;
+    cursor: pointer;
+    font-family: monospace;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: #0f0;
+    color: #000;
+}
+
+.country-details {
+    display: none;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(0, 20, 0, 0.7);
+    padding: 20px;
+    border: 1px solid #0f0;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.country-flag {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+    border: 1px solid #0f0;
+}
+
+.country-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #0f0;
+}
+
+.region-countries {
+    display: none;
+    background-color: rgba(0, 20, 0, 0.7);
+    padding: 20px;
+    border: 1px solid #0f0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.region-title {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.countries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.country-card {
+    background-color: rgba(0, 30, 0, 0.7);
+    padding: 15px;
+    border: 1px solid #0f0;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.country-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+
+.country-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border: 1px solid #0f0;
+}
+
+.loading {
+    text-align: center;
+    display: none;
+}
+
+.error-message {
+    color: #ff3333;
+    text-align: center;
+    display: none;
+    background-color: rgba(20, 0, 0, 0.7);
+    padding: 15px;
+    border: 1px solid #ff3333;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@media (max-width: 768px) {
+    .country-info {
+        grid-template-columns: 1fr;
+    }
+    
+    input[type="text"] {
+        width: 80%;
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    
+    .countries-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+.loading, .error-message, .country-details, .region-countries {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
