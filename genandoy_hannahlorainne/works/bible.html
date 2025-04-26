@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bible Character Guessing Game</title>
+<style>
+    body {
+        background-color: #fdf6ec;
+        font-family: 'Segoe UI', sans-serif;
+        text-align: center;
+        padding: 50px;
+    }
+
+    .game-box {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 20px;
+        max-width: 500px;
+        margin: auto;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        color: #6a4b34;
+    }
+
+    .clue {
+        font-size: 20px;
+        margin: 20px 0;
+        color: #333;
+    }
+
+    input {
+        padding: 10px;
+        width: 80%;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        font-size: 16px;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        background-color: #8e6f60;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #6a4b34;
+    }
+
+    .result {
+        margin-top: 15px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="game-box">
+    <h1>🕵️ Bible Character Guessing Game</h1>
+    <div class="clue" id="clue">Loading clue...</div>
+
+    <input type="text" id="guessInput" placeholder="Type your guess here..."/>
+    <br>
+    <button onclick="checkGuess()">Submit Guess</button>
+    <button onclick="nextClue()">Next Clue</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    const characters = [
+        { clue: "I built a big ark and saved animals from a flood.", answer: "Noah" },
+        { clue: "I was swallowed by a big fish.", answer: "Jonah" },
+        { clue: "I led the Israelites out of Egypt.", answer: "Moses" },
+        { clue: "I was the shepherd boy who defeated Goliath.", answer: "David" },
+        { clue: "I betrayed Jesus with a kiss.", answer: "Judas" },
+        { clue: "I was the first woman, created from a rib.", answer: "Eve" },
+        { clue: "God gave me strength, and I lost it when my hair was cut.", answer: "Samson" },
+        { clue: "I interpreted Pharaoh's dreams and wore a colorful coat.", answer: "Joseph" },
+        { clue: "I was visited by an angel and gave birth to Jesus.", answer: "Mary" }
+    ];
+
+    let currentIndex = 0;
+
+    function showClue() {
+        document.getElementById("clue").textContent = characters[currentIndex].clue;
+        document.getElementById("guessInput").value = "";
+        document.getElementById("result").textContent = "";
+    }
+
+    function checkGuess() {
+        const userGuess = document.getElementById("guessInput").value.trim().toLowerCase();
+        const correctAnswer = characters[currentIndex].answer.toLowerCase();
+
+        const resultEl = document.getElementById("result");
+
+        if (userGuess === correctAnswer) {
+        resultEl.textContent = "✅ Correct! Great job!";
+        resultEl.style.color = "green";
+        } else {
+        resultEl.textContent = `❌ Oops! The correct answer was "${characters[currentIndex].answer}"`;
+        resultEl.style.color = "red";
+        }
+    }
+
+    function nextClue() {
+        currentIndex = (currentIndex + 1) % characters.length;
+        showClue();
+    }
+    
+    showClue();
+</script>
+
+</body>
+</html>
