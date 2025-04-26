@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="country.css" />
+    <title>Country</title>
+  </head>
+  <body>
+    <div id="nav">
+      <img
+        class="logo"
+        src="/alejandro_aleckmcklaiyre/assets/alekx_logo.png"
+        alt="Alekx" />
+      <ul>
+        <li><a href="/alejandro_aleckmcklaiyre/index.html">Home</a></li>
+      </ul>
+    </div>
+
+
+    <div>
+      <h1>Countries of the World</h1>
+    </div>
+
+
+    <div id="search-card">
+      <h2>Search for a Country</h2>
+      <form>
+        <input
+          type="text"
+          id="country-search"
+          placeholder="Enter country name" />
+        <button id="search-btn">Search</button>
+      </form>
+      <script src="country.js"></script>
+    </div>
+
+
+    <div id="country-result" class="result_card hidden">
+      <h2 id="country-name">Country Details</h2>
+      <div id="country-details">
+        <div class="loader">Loading...</div>
+      </div>
+    </div>
+
+
+    <div id="region-countries" class="region_card hidden">
+      <h2>Other Countries in Europe</h2>
+      <div id="region-details">
+        <div class="region-country-card">
+          <div class="flag-container">
+            <img
+              src="https://flagcdn.com/no.svg"
+              alt="Norway Flag"
+              class="region-flag" />
+          </div>
+          <h3>Norway</h3>
+        </div>
+
+
+        <div class="region-country-card">
+          <div class="flag-container">
+            <img
+              src="https://flagcdn.com/gr.svg"
+              alt="Greece Flag"
+              class="region-flag" />
+          </div>
+          <h3>Greece</h3>
+        </div>
+
+
+        <div class="region-country-card">
+          <div class="flag-container">
+            <img
+              src="https://flagcdn.com/ax.svg"
+              alt="Åland Islands Flag"
+              class="region-flag" />
+          </div>
+          <h3>Åland Islands</h3>
+        </div>
+
+
+        <div class="region-country-card">
+          <div class="flag-container">
+            <img
+              src="https://flagcdn.com/ch.svg"
+              alt="Switzerland Flag"
+              class="region-flag" />
+          </div>
+          <h3>Switzerland</h3>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
