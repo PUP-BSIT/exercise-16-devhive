@@ -1,0 +1,486 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #4EC0CA;
+    background-color: #4EC0CA;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-image: linear-gradient(to bottom, #4EC0CA 0%, #70C5CE 100%);
+    background-attachment: fixed;
+}
+
+header {
+    background-color: #FED700;
+    padding: 30px;
+    color: #553847; 
+    text-align: center;
+    border-bottom: 8px solid #D8A903; 
+    background-color: #FED700;
+    padding: 30px;
+    color: #553847;
+    text-align: center;
+    border-bottom: 8px solid #D8A903;
+    position: relative;
+    overflow: hidden;
+}
+
+header:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.8) 10px, 
+            transparent 10px),
+        radial-gradient(circle at 30% 70%, rgba(255,255,255,0.8) 15px, 
+            transparent 15px),
+        radial-gradient(circle at 70% 40%, rgba(255,255,255,0.8) 12px, 
+            transparent 12px),
+        radial-gradient(circle at 80% 60%, rgba(255,255,255,0.8) 15px, 
+            transparent 15px);
+    z-index: 0;
+    opacity: 0.7;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin: 0;
+    text-shadow: 3px 3px 0 #D8A903;
+    animation: float 2s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+}
+
+header p {
+    font-size: 0.8rem;
+    margin: 15px 0 0;
+    color: #553847;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+main {
+    padding: 20px;
+    position: relative;
+}
+
+main:before {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    left: 5%;
+    width: 80px;
+    height: 200px;
+    background-color: #73BF2E; 
+    background-color: #73BF2E;
+    border: 5px solid #2C9100;
+    border-bottom: none;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+main:after {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 10%;
+    width: 80px;
+    height: 140px;
+    background-color: #73BF2E;
+    border: 5px solid #2C9100;
+    border-top: none;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.card {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    border: 5px solid #553847; 
+    border: 5px solid #553847;
+    box-shadow: 0 8px 0 #372530, 0 12px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 13px 0 #372530, 0 17px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card:active {
+    transform: translateY(3px);
+    box-shadow: 0 5px 0 #372530, 0 9px 10px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #553847;
+    text-align: center;
+    text-shadow: 2px 2px 0 #FED700;
+}
+
+ul, ol {
+    padding-left: 15px;
+    font-size: 0.7rem;
+    text-align: auto;
+}
+
+li {
+    margin-bottom: 10px;
+    color: #553847;
+    text-align: auto;
+}
+
+a {
+    color: #E84A3C; 
+    color: #E84A3C;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #FF6C5E;
+    text-decoration: underline;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 0.7rem;
+    color: #553847;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 95%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 3px solid #553847;
+    font-size: 0.7rem;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #f8f8f8;
+    transition: border-color 0.3s ease;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #FED700;
+    background-color: #ffffff;
+    outline: none;
+}
+
+button {
+    padding: 12px;
+    background-color: #E84A3C; 
+    background-color: #E84A3C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 5px 0 #B73729, 0 6px 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+button:hover {
+    background-color: #FF6C5E;
+}
+
+button:active {
+    transform: translateY(5px);
+    box-shadow: 0 0 0 #B73729, 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #73BF2E;
+    background-color: #73BF2E;
+    color: #553847;
+    border-top: 5px solid #2C9100;
+    margin-top: 40px;
+    position: relative;
+    font-size: 0.7rem;
+}
+
+footer:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background-color: #2C9100;
+    background-image: linear-gradient(90deg, 
+        transparent 50%, rgba(255,255,255,0.3) 50%);
+    background-size: 20px 20px;
+}
+
+#gallery {
+    padding: 25px;
+    position: relative;
+}
+
+.image-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    padding: 10px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 4px solid #553847;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 0 #372530, 0 8px 8px rgba(0, 0, 0, 0.2);
+    filter: brightness(0.95);
+}
+
+.image-container img:hover {
+    transform: translateY(-8px) rotate(2deg);
+    box-shadow: 0 12px 0 #372530, 0 14px 12px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.05);
+    border-color: #FED700;
+}
+
+.image-container a {
+    position: relative;
+    display: block;
+    padding: 5px;
+    background-color: #4EC0CA;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.image-container a:hover {
+    background-color: #FED700;
+    transform: scale(1.03);
+}
+
+#gallery::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 10%;
+    width: 40px;
+    height: 60px;
+    background-color: #73BF2E;
+    border: 4px solid #2C9100;
+    border-radius: 0 0 5px 5px;
+    z-index: -1;
+}
+
+#gallery::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    right: 15%;
+    width: 40px;
+    height: 60px;
+    background-color: #73BF2E;
+    border: 4px solid #2C9100;
+    border-radius: 5px 5px 0 0;
+    z-index: -1;
+}
+
+#gallery h2 {
+    animation: bounce 2s infinite;
+    color: #553847;
+    text-shadow: 2px 2px 0 #FED700, 4px 4px 0 #D8A903;
+    letter-spacing: 1px;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.image-container::before {
+    content: "";
+    position: absolute;
+    bottom: 20px;
+    left: 5%;
+    width: 60px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 30px;
+    z-index: -1;
+    animation: float-left 15s infinite linear;
+}
+
+.image-container::after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    right: 10%;
+    width: 40px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    z-index: -1;
+    animation: float-right 12s infinite linear;
+}
+
+@keyframes float-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(100%); }
+}
+
+@keyframes float-right {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+#comment-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.image-container a::after {
+    content: "🎮";
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    background-color: #E84A3C;
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    border: 2px solid #553847;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s ease;
+}
+
+.image-container a:hover::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#contact, #my_goals {
+    overflow: hidden;
+    max-height: fit-content;    
+    max-height: fit-content;
+}
+
+.sort-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    border: 2px solid #553847;
+}
+
+.sort-controls span {
+    font-size: 0.6rem;
+    color: #553847;
+}
+
+.sort-controls button {
+    padding: 8px 12px;
+    font-size: 0.6rem;
+    background-color: #73BF2E;
+    border: none;
+    color: #553847;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 3px 0 #2C9100, 0 4px 3px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+.sort-controls button:hover {
+    background-color: #8CD846;
+}
+
+.sort-controls button:active {
+    transform: translateY(3px);
+    box-shadow: 0 0 0 #2C9100, 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.sort-controls button.active {
+    background-color: #FED700;
+    box-shadow: 0 3px 0 #D8A903, 0 4px 3px rgba(0, 0, 0, 0.2);
+}
+
+#comments-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    border: 2px dashed #db1822;
+}
+
+#comments-container p {
+    padding: 10px 15px;
+    background-color: white;
+    border-radius: 8px;
+    border-left: 4px solid #da1414;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 0.7rem;
+    text-align: left;
+    margin: 0;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+#comments-container p:hover {
+    transform: translateX(5px);
+    border-left: 4px solid #E84A3C;
+}
+
+#comments-container p::after {
+    content: attr(data-formatted-date);
+    position: absolute;
+    top: -8px;
+    right: 10px;
+    padding: 3px 6px;
+    background-color: #e06363;
+    color: white;
+    border-radius: 4px;
+    font-size: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#comments-container p:hover::after {
+    opacity: 1;
+}

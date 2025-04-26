@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Genandoy Hannah Lorainne Page</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Genandoy Hannah Lorainne</h1>
+      <p>Welcome to my Website!</p>
+    </header>
+
+    <main>
+      <div id="interests" class="card">
+        <h2>My Interests and Hobbies</h2>
+        <ul>
+          <li>Watching variety shows</li>
+          <li>My cats</li>
+          <li>Eating</li>
+          <li>Sleeping</li>
+          <li>Korea and Thailand</li>
+        </ul>
+      </div>
+
+      <div id="my_works" class="card">
+        <h2>My Works</h2>
+        <ol>
+          <li><a href="./works/calculator.html" target="_blank">
+            Calculator</a></li>
+          <li><a href="./works/speedTest.html" target="_blank">
+            Speed Test</a></li>
+          <li><a href="./works/bmi.html" target="_blank"
+            >BMI Calculator</a></li>
+          <li><a href="./works/bible.html" target="_blank">
+            Bible Guessing Game</a></li>
+          <li><a href="./works/country/countries.html" target="_blank">
+            Countries of the World</a></li>
+        </ol>
+      </div>
+
+      <div id="testimonials" class="card">
+        <h2>Testimonials</h2>
+        <ul>
+          <li>Cool design language and animation -Mejares</li>
+          <li>It gives off a nice retro game vibe ⟡⟡ -Alejandro</li>
+          <li>Cute and neat -Esparagoza</li>
+        </ul>
+      </div>
+
+      <div id="gallery" class="card">
+        <h2>My Gallery</h2>
+        <div class="image-container">
+          <img src="./assets/7.jpg" alt="My chill moments"/>
+          <img src="./assets/chill.jpg" alt="STEM adventures"/>
+          <img src="./assets/my9.jpg" alt="SEVEN" />
+          <img src="./assets/seven.jpg" alt="STEM memories"/>
+          <img src="./assets/tannies.jpg" alt="KIF"/>
+          <img src="./assets/weinberg.jpg" alt="KIF moments"/>
+        </div>
+      </div>
+
+      <div id="contact" class="card">
+        <h2>Contact Form</h2>
+        <div class="contact-form">
+          <form>
+            <label for="full-name">Full Name:</label>
+            <input type="text" id="full-name" name="full-name"/>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email"/>
+
+            <label for="phone">Contact Number:</label>
+            <input type="tel" id="phone" name="phone"/>
+
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country"/>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address"/>
+
+            <label for="reason">Reason for Contacting Me:</label>
+            <textarea id="reason" name="reason" rows="3"></textarea>
+
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="my_goals" class="card">
+        <h2>My Goals</h2>
+        <ul>
+          <li>To Graduate</li>
+          <li>To have a stable and enjoyable job</li>
+          <li>Travel</li>
+          <li>Build a portfolio with meaningful projects</li>
+        </ul>
+
+        <h2>Comments</h2>
+        <p>I believe in you - Mejares</p>
+        <p>You've got this! - Alejandro</p>
+        <p>Goodluck to your goals - Esparagoza</p>
+
+        <h3>Leave a Comment</h3>
+        <form id="commentForm">
+          <label for="commenter-name">Name:</label>
+          <input type="text" id="commenter-name" 
+            name="commenter-name" required/>
+
+          <label for="comment-text">Comment:</label>
+          <textarea id="comment-text" name="comment-text" 
+            rows="3" required></textarea>
+
+          <button type="submit" id="comment-btn" disabled>Comment</button>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <p>Made with ❤️ by Hannah Lorainne</p>
+    </footer>
+  </body>
+</html>

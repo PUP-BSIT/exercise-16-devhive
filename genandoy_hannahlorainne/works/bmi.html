@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BMI Calculator</title>
+<style>
+    body {
+        background: #fdf6e3;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background: #fff6dc;
+        border: 3px dashed #ffc107;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 4px 4px 0px #222;
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+    }
+
+    h1 {
+        color: #ff6f61;
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin: 15px 0 5px;
+        color: #333;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        font-size: 16px;
+        background: #fff9ed;
+    }
+
+    button {
+        margin-top: 20px;
+        background: #00c897;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    button:hover {
+        background: #008e6e;
+    }
+
+    #result {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #555;
+    }
+
+    .note {
+        font-size: 14px;
+        margin-top: 5px;
+        color: #999;
+    }
+</style>
+
+</head>
+<body>
+<div class="container">
+    <h1>📏 Your BMI Calculator</h1>
+    <label for="height">Your Height (cm):</label>
+    <input type="number" id="height" placeholder="e.g. 160">
+
+    <label for="weight">Your Weight (kg):</label>
+    <input type="number" id="weight" placeholder="e.g. 55">
+
+    <button onclick="calculateBMI()">Calculate BMI</button>
+
+    <div id="result"></div>
+    <div class="note">* This is just an estimate. Stay healthy and happy, student! 💖</div>
+</div>
+
+<script>
+    function calculateBMI() {
+        const height = parseFloat(document.getElementById("height").value);
+        const weight = parseFloat(document.getElementById("weight").value);
+        const result = document.getElementById("result");
+
+        if (!height || !weight || height <= 0 || weight <= 0) {
+        result.innerHTML = "📚 Please enter valid numbers!";
+        result.style.color = "#e63946";
+        return;
+    }
+
+        const heightInMeters = height / 100;
+        const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+
+        let message = "";
+        let color = "#333";
+
+        if (bmi < 18.5) {
+        message = "📉 BMI: " + bmi + " – Grade: C+ (Underweight)";
+        color = "#2196f3";
+        } else if (bmi < 24.9) {
+        message = "💪 BMI: " + bmi + " – Grade: A (Normal)";
+        color = "#4caf50";
+        } else if (bmi < 29.9) {
+        message = "🍟 BMI: " + bmi + " – Grade: B (Overweight)";
+        color = "#ff9800";
+        } else {
+        message = "⚠️ BMI: " + bmi + " – Grade: D (Obese)";
+        color = "#f44336";
+        }
+
+        result.innerHTML = message;
+        result.style.color = color;
+    }
+</script>
+</body>
+</html>
