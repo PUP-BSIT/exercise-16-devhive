@@ -1,0 +1,19 @@
+body {
+    background-color: #012456;
+    color: white;
+    font-family: Consolas, monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+a {
+    color: #00ffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover {
+    text-decoration: underline;
+}
