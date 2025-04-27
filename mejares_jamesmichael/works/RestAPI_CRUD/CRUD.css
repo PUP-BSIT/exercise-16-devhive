@@ -1,20 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
 
+:root {
+    --text-color: #0f0;
+    --bg-color: #000;
+    --accent-color: #006600;
+    --highlight-color: #00ff00;
+    --dark-bg-color: rgba(0, 20, 0, 0.7);
+    --error-color: #ff3333;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: #0f0;
+    color: var(--text-color);
     font-family: "VT323", monospace;
 }
 
 body {
-    background-color: #000;
-    color: #0f0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     margin: 0;
     padding: 0;
     background-image: url('https://placeholder.com/map.gif');
-    background-size: auto 90%;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -39,22 +48,23 @@ body {
 }
 
 .content {
+    width: 95%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 10px;
     position: relative;
     z-index: 2;
 }
 
 h1, h2, h3 {
-    color: #0f0;
-    text-shadow: 0 0 5px #0f0;
+    color: var(--text-color);
+    text-shadow: 0 0 5px var(--text-color);
 }
 
 h1 {
     text-align: center;
     margin-bottom: 30px;
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -66,9 +76,9 @@ h1::after {
 
 .search-container {
     margin-bottom: 40px;
-    background-color: rgba(0, 20, 0, 0.7);
-    padding: 20px;
-    border: 1px solid #0f0;
+    background-color: var(--dark-bg-color);
+    padding: clamp(15px, 3vw, 20px);
+    border: 1px solid var(--text-color);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
 }
@@ -80,43 +90,43 @@ h1::after {
 label {
     display: block;
     margin-bottom: 5px;
-    color: #0f0;
-    font-size: 1.2rem;
+    color: var(--text-color);
+    font-size: clamp(1rem, 3vw, 1.2rem);
 }
 
 input[type="text"], 
 input[type="number"] {
     width: 100%;
     padding: 10px;
-    background-color: #000;
-    border: 1px solid #0f0;
-    color: #0f0;
+    background-color: var(--bg-color);
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
     font-family: "VT323", monospace;
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 3vw, 1.1rem);
 }
 
 input:focus {
     outline: none;
-    border-color: #0f0;
-    box-shadow: 0 0 5px #0f0;
+    border-color: var(--text-color);
+    box-shadow: 0 0 5px var(--text-color);
 }
 
 button {
     padding: 10px 20px;
-    background-color: #003300;
-    color: #0f0;
-    border: 1px solid #0f0;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
     cursor: pointer;
     font-family: "VT323", monospace;
     transition: all 0.3s;
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 button:hover {
-    background-color: #0f0;
-    color: #000;
+    background-color: var(--text-color);
+    color: var(--bg-color);
 }
 
 .submit-btn {
@@ -128,17 +138,19 @@ button:hover {
     text-align: center;
     display: none;
     margin: 20px 0;
+    font-size: clamp(1rem, 3vw, 1.2rem);
 }
 
 .error-message {
-    color: #ff3333;
+    color: var(--error-color);
     text-align: center;
     display: none;
     background-color: rgba(20, 0, 0, 0.7);
     padding: 15px;
-    border: 1px solid #ff3333;
+    border: 1px solid var(--error-color);
     margin-bottom: 20px;
     border-radius: 5px;
+    font-size: clamp(0.9rem, 3vw, 1rem);
 }
 
 .blink {
@@ -146,89 +158,73 @@ button:hover {
 }
 
 .country-list-container {
-    background-color: rgba(0, 20, 0, 0.7);
-    padding: 20px;
-    border: 1px solid #0f0;
+    background-color: var(--dark-bg-color);
+    padding: clamp(10px, 3vw, 20px);
+    border: 1px solid var(--text-color);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+    overflow-x: auto; /* Enable horizontal scrolling on small screens */
 }
 
 .list-header {
     text-align: center;
     padding-bottom: 10px;
     margin-bottom: 20px;
-    border-bottom: 1px solid #0f0;
+    border-bottom: 1px solid var(--text-color);
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
 }
 
 .country-table {
     width: 100%;
     border-collapse: collapse;
-    color: #0f0;
-    table-layout: fixed;
+    color: var(--text-color);
+    table-layout: fixed; /* Ensures columns maintain consistent widths */
 }
 
+/* Column width definitions */
 .country-table th:nth-child(1),
 .country-table td:nth-child(1) {
     width: 18%;
-    text-align: left;
 }
 
 .country-table th:nth-child(2),
 .country-table td:nth-child(2) {
     width: 18%;
-    text-align: left;
 }
 
 .country-table th:nth-child(3),
 .country-table td:nth-child(3) {
     width: 18%;
-    text-align: left;
 }
 
 .country-table th:nth-child(4),
 .country-table td:nth-child(4) {
     width: 22%;
-    text-align: left;
 }
 
 .country-table th:nth-child(5),
 .country-table td:nth-child(5) {
     width: 12%;
-    text-align: left;
 }
 
 .country-table th:nth-child(6),
 .country-table td:nth-child(6) {
     width: 12%;
-    text-align: center;
 }
 
 .country-table th {
     padding: 10px;
     text-align: left;
-    border-bottom: 1px solid #006600;
-    font-size: 1.2rem;
+    border-bottom: 2px solid var(--text-color);
+    font-size: clamp(1rem, 3vw, 1.2rem);
     background-color: rgba(0, 20, 0, 0.8);
-}
-
-.country-table thead tr {
-    border-bottom: 2px solid #0f0;
-}
-
-.country-table td:last-child {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.country-table tbody tr {
-    border-bottom: 1px dashed #003300;
 }
 
 .country-table td {
     padding: 10px;
-    border-bottom: 1px dashed #006600;
-    font-size: 1.1rem;
+    border-bottom: 1px dashed var(--accent-color);
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+    text-align: left;
 }
 
 .country-table tr:hover {
@@ -238,22 +234,21 @@ button:hover {
 .action-btn {
     background-color: transparent;
     border: 1px solid;
-    padding: 5px 10px;
-    margin-right: 5px;
+    padding: 5px 8px;
+    margin: 0 2px;
     cursor: pointer;
     font-family: "VT323", monospace;
-    min-width: 70px;
-    text-align: center;
+    min-width: 60px;
 }
 
-.edit-btn {
+.update-btn {
     border-color: #ffff00;
     color: #ffff00;
 }
 
-.edit-btn:hover {
+.update-btn:hover {
     background-color: #ffff00;
-    color: #000;
+    color: var(--bg-color);
 }
 
 .delete-btn {
@@ -263,7 +258,7 @@ button:hover {
 
 .delete-btn:hover {
     background-color: #ff0000;
-    color: #000;
+    color: var(--bg-color);
 }
 
 .no-data-message {
@@ -271,6 +266,30 @@ button:hover {
     color: #888888;
     font-style: italic;
     padding: 20px;
+    font-size: clamp(0.9rem, 3vw, 1rem);
+}
+
+.terminal-message {
+    background-color: var(--dark-bg-color);
+    padding: 10px 15px;
+    margin: 15px 0;
+    border-left: 3px solid;
+    font-size: clamp(0.9rem, 3vw, 1rem);
+}
+
+.terminal-message.processing {
+    border-color: #ffff00;
+    color: #ffff00;
+}
+
+.terminal-message.success {
+    border-color: var(--text-color);
+    color: var(--text-color);
+}
+
+.terminal-message.error {
+    border-color: var(--error-color);
+    color: var(--error-color);
 }
 
 /* Animations */
@@ -289,24 +308,69 @@ button:hover {
     transition: opacity 1s;
 }
 
-/* Responsive adjustments */
+.cancel-btn {
+    background-color: transparent;
+    border: 1px solid #888888;
+    color: #888888;
+    padding: 10px;
+    margin-left: 0px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-family: "VT323", monospace;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cancel-btn:hover {
+    background-color: #888888;
+    color: var(--bg-color);
+}
+
 @media (max-width: 768px) {
     .content {
+        width: 95%;
         padding: 10px;
     }
     
-    h1 {
-        font-size: 2rem;
-    }
-    
-    .country-table th,
-    .country-table td {
-        padding: 8px 5px;
-        font-size: 1rem;
+    /* Table adjustments for mobile */
+    .country-table {
+        min-width: 650px; /* Ensure minimum width for scrollable container */
     }
     
     .action-btn {
+        min-width: 50px;
         padding: 3px 6px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .search-container,
+    .country-list-container {
+        padding: 10px;
+    }
+    
+    .form-group {
+        margin-bottom: 10px;
+    }
+    
+    label {
+        font-size: 1rem;
+    }
+    
+    input[type="text"],
+    input[type="number"] {
+        padding: 8px;
+    }
+    
+    .submit-btn,
+    .cancel-btn {
+        padding: 8px;
         font-size: 0.9rem;
     }
 }
