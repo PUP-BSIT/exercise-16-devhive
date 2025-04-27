@@ -1,6 +1,6 @@
 // Global variables
 let countryData = [];
-let currentEditId = null;
+let currentUpdateId = null;
 
 document.addEventListener('DOMContentLoaded', function() {
     loadCountryData();
@@ -55,11 +55,12 @@ function displayCountryList() {
             
             const actionCell = document.createElement('td');
             
-            const editBtn = document.createElement('button');
-            editBtn.textContent = 'Edit';
-            editBtn.className = 'action-btn edit-btn';
-            editBtn.addEventListener('click', () => editCountry(item.id));
-            actionCell.appendChild(editBtn);
+            const updateBtn = document.createElement('button');
+            updateBtn.textContent = 'Update';
+            updateBtn.className = 'action-btn update-btn';
+            updateBtn.addEventListener('click', 
+                () => updateCountryForm(item.id));
+            actionCell.appendChild(updateBtn);
             
             const deleteBtn = document.createElement('button');
             deleteBtn.textContent = 'Delete';
@@ -97,25 +98,25 @@ function setupFormListeners() {
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        if (currentEditId) {
-            updateCountry(e);
+        if (currentUpdateId) {
+            updateCountryData(e);
         } else {
             createCountry(e);
         }
     });
     
     // Add cancel button if not present
-    if (!document.getElementById('cancelEditBtn')) {
+    if (!document.getElementById('cancelUpdateBtn')) {
         const cancelBtn = document.createElement('button');
         cancelBtn.textContent = 'Cancel';
-        cancelBtn.id = 'cancelEditBtn';
+        cancelBtn.id = 'cancelUpdateBtn';
         cancelBtn.className = 'cancel-btn';
         cancelBtn.type = 'button';
         cancelBtn.style.display = 'none';
         
         cancelBtn.addEventListener('click', function() {
             form.reset();
-            currentEditId = null;
+            currentUpdateId = null;
             submitBtn.textContent = 'Add to Bucket List';
             cancelBtn.style.display = 'none';
         });
@@ -155,7 +156,7 @@ function createCountry(e) {
     });
 }
 
-function editCountry(id) {
+function updateCountryForm(id) {
     // Find country by id
     const country = countryData.find(item => item.id === id);
     if (!country) return;
@@ -173,22 +174,22 @@ function editCountry(id) {
     submitBtn.textContent = 'Update Destination';
     
     
-    const cancelBtn = document.getElementById('cancelEditBtn');
+    const cancelBtn = document.getElementById('cancelUpdateBtn');
     if (cancelBtn) cancelBtn.style.display = 'inline-block';
     
-    currentEditId = id;
+    currentUpdateId = id;
     
     form.scrollIntoView({ behavior: 'smooth' });
     
-    showMessage("Editing destination: " + country.country, "processing");
+    showMessage("Updating destination: " + country.country, "processing");
 }
 
-function updateCountry(e) {
+function updateCountryData(e) {
     const form = e.target;
     const formData = new FormData(form);
     
     // Add ID to form data
-    formData.append('id', currentEditId);
+    formData.append('id', currentUpdateId);
     
     const loadingElement = document.querySelector('.loading');
     loadingElement.style.display = 'block';
@@ -218,10 +219,10 @@ function updateCountry(e) {
         const submitBtn = form.querySelector('button[type="submit"]');
         submitBtn.textContent = 'Add to Bucket List';
         
-        const cancelBtn = document.getElementById('cancelEditBtn');
+        const cancelBtn = document.getElementById('cancelUpdateBtn');
         if (cancelBtn) cancelBtn.style.display = 'none';
         
-        currentEditId = null;
+        currentUpdateId = null;
         
         loadCountryData();
         loadingElement.style.display = 'none';
