@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Countries of the World</title>
+    <link rel="stylesheet" href="../countries_of_the_world/styles.css"/>
+</head>
+<body>
+    <header>
+    <h1>Countries of the World</h1>
+    <p>Explore countries and their regions!</p>
+    </header>
+
+    <main>
+    <div class="card search-card">
+        <h2>Search for a Country</h2>
+        <div class="search-container">
+        <input type="text" id="country-search"
+            placeholder="Enter country name"/>
+        <button id="search-btn">Search</button>
+        </div>
+    </div>
+
+    <div id="country-result" class="card result-card hidden">
+        <h2 id="country-name">Country Details</h2>
+        <div id="country-details">
+        <div class="loader">Loading...</div>
+        </div>
+    </div>
+
+    <div id="region-countries" class="card region-card hidden">
+        <h2>Countries in the Same Region</h2>
+        <div id="region-details">
+        <div class="loader">Loading...</div>
+        </div>
+    </div>
+    </main>
+
+    <script src="../countries_of_the_world/scripts.js"></script>
+</body>
+</html>

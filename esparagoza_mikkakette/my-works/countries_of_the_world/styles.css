@@ -1,0 +1,339 @@
+body {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", 
+    "Lucida Sans", Arial, sans-serif;
+    background: linear-gradient(45deg, #434343 0%, #3a3a3a 100%);
+    margin: 0;
+    padding-top: 65px;
+    text-align: center;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to left, #434343, #c40000);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    z-index: 1000;
+    height: 125px;
+}
+
+header h1 {
+    margin-left: 25px;
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+header p {
+    margin-left: 25px;
+    margin-top: -10px;
+}
+
+main {
+    width: 80%;
+    margin: 80px auto;
+}
+
+.card {
+    width: 70%;
+    margin: 20px auto;
+    background: #434343d7;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.search-card {
+    background: #810a0a;
+}
+
+h2 {
+    color: #ffffff;
+    background: linear-gradient(to right, #930000, #a30000);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    margin-top: 0%;
+    letter-spacing: 1px;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#country-search {
+    width: 70%;
+    padding: 12px;
+    margin: 15px auto;
+    color: rgb(0, 0, 0);
+    border: solid 1px #000000;
+    border-radius: 10px;
+    font-size: 15px;
+    box-shadow: 0 4px 15px rgba(248, 231, 236, 0.4);
+    display: block;
+    text-align: center;
+    transition: all 0.3s ease;
+    background-color: #b4b0b0;
+}
+
+#country-search:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+    background-color: rgb(255, 255, 255);
+}
+
+#search-btn {
+    width: 50%;
+    padding: 12px;
+    background: linear-gradient(to right, #7b0e0e, #ff0000);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(248, 231, 236, 0.4);
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+#search-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+}
+
+.hidden {
+    display: none;
+}
+
+#country-details, #region-details {
+    background: rgba(140, 130, 130, 0.825);
+    border-radius: 8px;
+    padding: 12px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+#country-details:hover, #region-details:hover {
+    background: rgb(0, 0, 0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    color: rgb(255, 255, 255);
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Region Countries Grid - Updated to 4 columns */
+.region-countries-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.region-country-card {
+    background: rgba(140, 130, 130, 0.825);
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.region-country-card:hover {
+    background: rgb(0, 0, 0);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    color: rgb(255, 255, 255);
+}
+
+.region-country-flag {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    border: 3px solid #7a0000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.region-country-name {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#region-details h3 {
+    background: linear-gradient(to right, #7b0e0e, #a30000);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+table th {
+    background: linear-gradient(to right, #7b0e0e, #a30000);
+    color: white;
+}
+
+table tr:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.sort-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+    gap: 10px;
+}
+
+.sort-controls span {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.sort-controls button {
+    background: #434343;
+    color: #ffffff;
+    border: 1px solid #7a0000;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sort-controls button:hover {
+    background: #7a0000;
+}
+
+.sort-controls button.active {
+    background: #7a0000;
+    color: white;
+}
+
+/* Country Info Display */
+.country-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.country-flag {
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.395);
+    margin: 10px auto;
+    border: 5px solid #7a0000;
+    transition: all 0.3s ease;
+}
+
+.country-data {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.data-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.data-label {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Error Message */
+.error-message {
+    background: rgba(200, 0, 0, 0.3);
+    color: #ffffff;
+    padding: 15px;
+    border-left: 4px solid #ff0000;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .region-countries-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .region-countries-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .card {
+        width: 85%;
+        padding: 20px;
+    }
+
+    #country-search {
+        width: 80%;
+    }
+    
+    #search-btn {
+        width: 60%;
+    }
+}
+
+@media (max-width: 600px) {
+    .region-countries-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .card {
+        width: 90%;
+        padding: 15px;
+    }
+
+    #country-search {
+        width: 90%;
+    }
+    
+    #search-btn {
+        width: 70%;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+    
+    header p {
+        font-size: 14px;
+    }
+}
