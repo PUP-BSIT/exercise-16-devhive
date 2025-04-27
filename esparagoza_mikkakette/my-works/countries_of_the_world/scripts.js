@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     countryResult.classList.remove("hidden");
     countryName.textContent = "Searching...";
-    countryDetails.innerHTML = `<div class="loader">Loading country data...</div>`;
+    countryDetails.innerHTML = `<div class="loader">Loading data...</div>`;
     regionCountries.classList.add("hidden");
 
     fetch(`https://restcountries.com/v3.1/name/${encodeURIComponent(query)}`)
