@@ -18,10 +18,15 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
     commentsHeading.after(sortControls);
 
-    const fixedDate = new Date(2025, 2, 19, 17, 0).toLocaleString("en-US", {
-        year: "numeric", month: "short", day: "numeric", hour: "numeric",
-        minute: "2-digit", hour12: true,
-    });
+    const fixedDate = new Date(2025, 2, 19, 17, 0)
+        .toLocaleString("en-US", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: true,
+        });
     const fixedTimestamp = new Date(2025, 2, 19, 17, 0).getTime();
 
     const commentItems = commentPage.querySelectorAll("li");
@@ -36,12 +41,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function toggleButton() {
-        commentBtn.disabled = !(nameInput.value.trim() 
-            && commentInput.value.trim());
+        const isFilled = nameInput.value.trim() &&
+                         commentInput.value.trim();
+        commentBtn.disabled = !isFilled;
         commentBtn.style.opacity = commentBtn.disabled ? "0.5" : "1";
-        commentBtn.style.cursor = commentBtn.disabled ? 
+        commentBtn.style.cursor = commentBtn.disabled ?
             "not-allowed" : "pointer";
     }
+
     nameInput.addEventListener("input", toggleButton);
     commentInput.addEventListener("input", toggleButton);
 
@@ -58,8 +65,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         const newComment = document.createElement("p");
-        newComment.textContent = `${nameInput.value}: 
-            ${commentInput.value} (${formattedDate})`;
+        newComment.textContent = `${nameInput.value}: ` +
+            `${commentInput.value} (${formattedDate})`;
         newComment.dataset.timestamp = now.getTime();
         commentsContainer.prepend(newComment);
 
@@ -69,17 +76,21 @@ document.addEventListener("DOMContentLoaded", function () {
         commentsContainer.classList.remove("empty");
     });
 
-    document.getElementById("sort-newest").addEventListener("click", function(){
-        this.classList.add("active");
-        document.getElementById("sort-oldest").classList.remove("active");
-        sortComments("desc");
-    });
+    document.getElementById("sort-newest")
+        .addEventListener("click", function () {
+            this.classList.add("active");
+            document.getElementById("sort-oldest")
+                .classList.remove("active");
+            sortComments("desc");
+        });
 
-    document.getElementById("sort-oldest").addEventListener("click", function(){
-        this.classList.add("active");
-        document.getElementById("sort-newest").classList.remove("active");
-        sortComments("asc");
-    });
+    document.getElementById("sort-oldest")
+        .addEventListener("click", function () {
+            this.classList.add("active");
+            document.getElementById("sort-newest")
+                .classList.remove("active");
+            sortComments("asc");
+        });
 
     if (commentsContainer.children.length === 0) {
         commentsContainer.classList.add("empty");
@@ -100,5 +111,6 @@ document.addEventListener("DOMContentLoaded", function () {
         container.innerHTML = "";
         comments.forEach((comment) => container.appendChild(comment));
     }
+
     toggleButton();
 });
