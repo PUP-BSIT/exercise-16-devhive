@@ -278,38 +278,4 @@ document.addEventListener("DOMContentLoaded", function() {
             messageBox.classList.add("hidden");
         }
     }
-    
-    function addPixelEffects() {
-        const buttons = document.querySelectorAll("button");
-        buttons.forEach(button => {
-            button.addEventListener("click", createPixelDust);
-        });
-    }
-    
-    function createPixelDust(event) {
-        const x = event.clientX;
-        const y = event.clientY;
-        
-        for (let i = 0; i < 5; i++) {
-            const pixel = document.createElement("div");
-            pixel.className = "pixel-dust";
-
-            const posX = x + (Math.random() * 20 - 10);
-            const posY = y + (Math.random() * 20 - 10);
-            
-            pixel.style.left = `${posX}px`;
-            pixel.style.top = `${posY}px`;
-
-            const colors = ["#FED700", "#E84A3C", "#4EC0CA", "#73BF2E", "#553847"];
-            pixel.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            
-            document.body.appendChild(pixel);
-
-            setTimeout(() => {
-                document.body.removeChild(pixel);
-            }, 1000);
-        }
-    }
-    
-    addPixelEffects();
 });
