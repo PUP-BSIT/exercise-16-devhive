@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const API_URL = "https://yourdomain.com/api/kpopbands";
+    const API_URL = "https://genandoy-restapi-endpoint.php";
     
     const bandsList = document.getElementById("bands-list");
     const bandForm = document.getElementById("band-form");
@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const addBandBtn = document.getElementById("add-band-btn");
     const formTitle = document.getElementById("form-title");
     const messageBox = document.getElementById("message-box");
+    const formCancel = document.getElementById("form-cancel");
     
     const bandNameInput = document.getElementById("band-name");
     const debutYearInput = document.getElementById("debut-year");
@@ -21,6 +22,11 @@ document.addEventListener("DOMContentLoaded", function() {
     addBandBtn.addEventListener("click", showAddBandForm);
     searchBtn.addEventListener("click", searchBands);
     bandForm.addEventListener("submit", handleFormSubmit);
+    formCancel.addEventListener("click", function() {
+        resetForm();
+        bandForm.classList.add("hidden");
+    });
+    
     searchInput.addEventListener("keypress", function(event) {
         if (event.key === "Enter") {
             searchBands();
@@ -195,7 +201,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function updateBand(id, bandData) {
         showMessage("Updating band...", "info");
         
-        fetch(`${API_URL}/${id}`, {
+        fetch(`${API_URL}?id=${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -231,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         showMessage("Deleting band...", "info");
         
-        fetch(`${API_URL}/${id}`, {
+        fetch(`${API_URL}?id=${id}`, {
             method: "DELETE"
         })
         .then(response => {
@@ -302,5 +308,5 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
     
-addPixelEffects();
+    addPixelEffects();
 });
