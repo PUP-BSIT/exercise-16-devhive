@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
         bandsList.innerHTML = "";
         
         if (bands.length === 0) {
-            bandsList.innerHTML = `<p class="no-results">No K-pop bands found</p>`;
+            bandsList.innerHTML = `<p class="no-results">K-pop bands empty</p>`;
             return;
         }
         
@@ -77,14 +77,17 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
                 <div class="card-actions">
                     <button class="edit-btn" data-id="${band.id}">Edit</button>
-                    <button class="delete-btn" data-id="${band.id}">Delete</button>
+                    <button class="delete-btn" data-id="
+                        ${band.id}">Delete</button>
                 </div>
             `;
             
             bandsList.appendChild(bandCard);
             
-            bandCard.querySelector(".edit-btn").addEventListener("click", () => editBand(band));
-            bandCard.querySelector(".delete-btn").addEventListener("click", () => deleteBand(band.id));
+            bandCard.querySelector(".edit-btn").addEventListener("click", 
+                () => editBand(band));
+            bandCard.querySelector(".delete-btn").addEventListener("click", 
+                () => deleteBand(band.id));
         });
     }
     
@@ -290,13 +293,13 @@ document.addEventListener("DOMContentLoaded", function() {
         for (let i = 0; i < 5; i++) {
             const pixel = document.createElement("div");
             pixel.className = "pixel-dust";
-           
+
             const posX = x + (Math.random() * 20 - 10);
             const posY = y + (Math.random() * 20 - 10);
             
             pixel.style.left = `${posX}px`;
             pixel.style.top = `${posY}px`;
- 
+
             const colors = ["#FED700", "#E84A3C", "#4EC0CA", "#73BF2E", "#553847"];
             pixel.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
             
