@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const API_URL = "https://genandoy-restapi-endpoint.php";
+    const API_URL = "https://devhivespace.com/exercise16-api/genandoy/genandoy-restapi-endpoint.php";
     
     const bandsList = document.getElementById("bands-list");
     const bandForm = document.getElementById("band-form");
