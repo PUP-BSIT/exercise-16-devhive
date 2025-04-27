@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="book.css" />
+    <title>Reading List</title>
+  </head>
+  <body>
+    <div id="nav">
+      <img
+        class="logo"
+        src="/alejandro_aleckmcklaiyre/assets/alekx_logo.png"
+        alt="Alekx" />
+      <ul>
+        <li><a href="/alejandro_aleckmcklaiyre/index.html">Home</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h1 class="main-title">Reading List</h1>
+    </div>
+
+    <div class="search-container">
+      <h2 class="search-title">Search for a Book</h2>
+      <form class="search-form">
+        <input
+          type="text"
+          class="search-input"
+          id="search-title"
+          name="search-title"
+          placeholder="Enter book title" />
+        <button type="submit" class="search-button">Search</button>
+      </form>
+    </div>
+
+    <div class="form-container">
+      <h2 class="form-title">Input Book Details</h2>
+      <form method="post" id="book-form">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          placeholder="Enter book title" />
+
+        <label for="author">Author</label>
+        <input
+          type="text"
+          id="author"
+          name="author"
+          placeholder="Enter author name" />
+
+        <label for="genre">Genre</label>
+        <input type="text" id="genre" name="genre" placeholder="Enter genre" />
+
+        <label for="publication">Publication year</label>
+        <input
+          type="number"
+          id="publication"
+          name="publication"
+          placeholder="Enter year" />
+
+        <label for="status">Reading Status</label>
+        <select id="status" name="status">
+          <option value="">--Select status--</option>
+          <option value="to_read">To read</option>
+          <option value="current">Currently reading</option>
+          <option value="completed">Completed</option>
+        </select>
+
+        <button type="button" id="submit">Submit</button>
+      </form>
+    </div>
+
+    <script src="book.js"></script>
+  </body>
+</html>
