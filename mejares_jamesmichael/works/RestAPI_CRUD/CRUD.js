@@ -9,10 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function loadCountryData() {
     const loadingElement = document.querySelector('.loading');
-    loadingElement.style.display = 'block';
+    loadingElement.classList.add('active');
     
-    fetch('https://devhivespace.com/exercise16-api/mejares/mejares-restapi-endpoint.php'
-        , {
+    fetch('https://devhivespace.com/exercise16-api/mejares/mejares-restapi-endpoint.php', {
         method: 'GET'
     })
     .then(response => {
@@ -25,12 +24,12 @@ function loadCountryData() {
         countryData = data;
         displayCountryList();
         showMessage("Data loaded successfully", "success");
-        loadingElement.style.display = 'none';
+        loadingElement.classList.remove('active');
     })
     .catch(error => {
         console.error('Error:', error);
         showMessage('Error loading data: ' + error.message, "error");
-        loadingElement.style.display = 'none';
+        loadingElement.classList.remove('active');
     });
 }
 
@@ -97,7 +96,6 @@ function setupFormListeners() {
     // Submit event
     form.addEventListener('submit', function(e) {
         e.preventDefault();
-        
         if (currentUpdateId) {
             updateCountryData(e);
         } else {
@@ -110,15 +108,14 @@ function setupFormListeners() {
         const cancelBtn = document.createElement('button');
         cancelBtn.textContent = 'Cancel';
         cancelBtn.id = 'cancelUpdateBtn';
-        cancelBtn.className = 'cancel-btn';
+        cancelBtn.className = 'cancel-btn hidden';
         cancelBtn.type = 'button';
-        cancelBtn.style.display = 'none';
         
         cancelBtn.addEventListener('click', function() {
             form.reset();
             currentUpdateId = null;
             submitBtn.textContent = 'Add to Bucket List';
-            cancelBtn.style.display = 'none';
+            cancelBtn.classList.add('hidden');
         });
         
         submitBtn.parentNode.insertBefore(cancelBtn, submitBtn.nextSibling);
@@ -130,10 +127,9 @@ function createCountry(e) {
     const formData = new FormData(form);
     
     const loadingElement = document.querySelector('.loading');
-    loadingElement.style.display = 'block';
+    loadingElement.classList.add('active');
     
-    fetch('https://devhivespace.com/exercise16-api/mejares/mejares-restapi-endpoint.php'
-        , {
+    fetch('https://devhivespace.com/exercise16-api/mejares/mejares-restapi-endpoint.php', {
         method: 'POST',
         body: formData
     })
@@ -147,21 +143,19 @@ function createCountry(e) {
         showMessage('Success: ' + data.message, "success");
         form.reset();
         loadCountryData();
-        loadingElement.style.display = 'none';
+        loadingElement.classList.remove('active');
     })
     .catch(error => {
         console.error('Error:', error);
         showError('Error: ' + error.message);
-        loadingElement.style.display = 'none';
+        loadingElement.classList.remove('active');
     });
 }
 
 function updateCountryForm(id) {
-    // Find country by id
     const country = countryData.find(item => item.id === id);
     if (!country) return;
     
-    // Fill form with country data
     const form = document.getElementById('countryForm');
     form.country.value = country.country;
     form.city.value = country.city;
@@ -169,16 +163,13 @@ function updateCountryForm(id) {
     form.reason_to_visit.value = country.reason_to_visit;
     form.estimated_budget.value = country.estimated_budget;
     
-    
     const submitBtn = form.querySelector('button[type="submit"]');
     submitBtn.textContent = 'Update Destination';
     
-    
     const cancelBtn = document.getElementById('cancelUpdateBtn');
-    if (cancelBtn) cancelBtn.style.display = 'inline-block';
+    if (cancelBtn) cancelBtn.classList.remove('hidden');
     
     currentUpdateId = id;
-    
     form.scrollIntoView({ behavior: 'smooth' });
     
     showMessage("Updating destination: " + country.country, "processing");
@@ -187,21 +178,17 @@ function updateCountryForm(id) {
 function updateCountryData(e) {
     const form = e.target;
     const formData = new FormData(form);
-    
-    // Add ID to form data
     formData.append('id', currentUpdateId);
     
     const loadingElement = document.querySelector('.loading');
-    loadingElement.style.display = 'block';
+    loadingElement.classList.add('active');
     
-    // Convert FormData to URL encoded string for PUT request
     const data = new URLSearchParams();
     for (const pair of formData) {
         data.append(pair[0], pair[1]);
     }
     
-    fetch('https://devhivespace.com/exercise16-api/mejares/mejares-restapi-endpoint.php'
-        , {
+    fetch('https://devhivespace.com/exercise16-api/mejares/mejares-restapi-endpoint.php', {
         method: 'PUT',
         body: data
     })
@@ -215,22 +202,20 @@ function updateCountryData(e) {
         showMessage('Success: ' + data.message, "success");
         form.reset();
         
-        // Reset form state
         const submitBtn = form.querySelector('button[type="submit"]');
         submitBtn.textContent = 'Add to Bucket List';
         
         const cancelBtn = document.getElementById('cancelUpdateBtn');
-        if (cancelBtn) cancelBtn.style.display = 'none';
+        if (cancelBtn) cancelBtn.classList.add('hidden');
         
         currentUpdateId = null;
-        
         loadCountryData();
-        loadingElement.style.display = 'none';
+        loadingElement.classList.remove('active');
     })
     .catch(error => {
         console.error('Error:', error);
         showError('Error: ' + error.message);
-        loadingElement.style.display = 'none';
+        loadingElement.classList.remove('active');
     });
 }
 
@@ -240,14 +225,12 @@ function deleteCountry(id) {
     }
     
     const loadingElement = document.querySelector('.loading');
-    loadingElement.style.display = 'block';
+    loadingElement.classList.add('active');
     
-    // Create data with ID
     const data = new URLSearchParams();
     data.append('id', id);
     
-    fetch('https://devhivespace.com/exercise16-api/mejares/mejares-restapi-endpoint.php'
-        , {
+    fetch('https://devhivespace.com/exercise16-api/mejares/mejares-restapi-endpoint.php', {
         method: 'DELETE',
         body: data
     })
@@ -260,12 +243,12 @@ function deleteCountry(id) {
     .then(data => {
         showMessage('Success: ' + data.message, "success");
         loadCountryData();
-        loadingElement.style.display = 'none';
+        loadingElement.classList.remove('active');
     })
     .catch(error => {
         console.error('Error:', error);
         showError('Error: ' + error.message);
-        loadingElement.style.display = 'none';
+        loadingElement.classList.remove('active');
     });
 }
 
@@ -290,14 +273,13 @@ function showMessage(message, type) {
 
 function showError(message) {
     const errorElement = document.querySelector('.error-message');
+    errorElement.classList.add('active');
     errorElement.innerHTML = `<p>${message}</p>`;
-    errorElement.style.display = 'block';
 
     setTimeout(() => {
         errorElement.classList.add('fade-out');
         setTimeout(() => {
-            errorElement.style.display = 'none';
-            errorElement.classList.remove('fade-out');
+            errorElement.classList.remove('active', 'fade-out');
         }, 1000);
     }, 4000);
 }
