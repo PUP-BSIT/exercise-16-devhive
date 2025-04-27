@@ -141,6 +141,18 @@ button:hover {
     font-size: clamp(1rem, 3vw, 1.2rem);
 }
 
+.loading.active {
+    display: block;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.error-message.active {
+    display: block;
+}
+
 .error-message {
     color: var(--error-color);
     text-align: center;
@@ -163,7 +175,7 @@ button:hover {
     border: 1px solid var(--text-color);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
-    overflow-x: auto; /* Enable horizontal scrolling on small screens */
+    overflow-x: auto;
 }
 
 .list-header {
@@ -178,7 +190,7 @@ button:hover {
     width: 100%;
     border-collapse: collapse;
     color: var(--text-color);
-    table-layout: fixed; /* Ensures columns maintain consistent widths */
+    table-layout: fixed;
 }
 
 /* Column width definitions */
@@ -332,9 +344,8 @@ button:hover {
         padding: 10px;
     }
     
-    /* Table adjustments for mobile */
     .country-table {
-        min-width: 650px; /* Ensure minimum width for scrollable container */
+        min-width: 650px;
     }
     
     .action-btn {
